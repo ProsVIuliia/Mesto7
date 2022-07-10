@@ -1,4 +1,4 @@
-# pr4
+# pr7
 
 ### *Учебный проект от [Яндекс.Практикум](https://practicum.yandex.ru/web/)*
 
@@ -17,4 +17,4 @@
 - Адаптивный интерфейс для разных устройств.
 
 Ссылка на проект: 
-https://prosviuliia.github.io/pr4/
+https://prosviuliia.github.io/Mesto7/
