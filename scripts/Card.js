@@ -26,14 +26,14 @@ export default class Card {
   }
 
   _scaleImage(evt) {
-    const popupForScaleImg = document.querySelector(".popup_for_scale-image");
-    const formImg = document.querySelector(".popup__image");
-    const formImgTitle = document.querySelector(".popup__image-title");
-    formImg.src = evt.target.src;
-    formImg.alt = evt.target.alt;
-    formImgTitle.textContent = evt.target.alt;
+    this._popupForScaleImg = document.querySelector('.popup_for_scale-image');
+    this._formImg = document.querySelector('.popup__image');
+    this._formImgTitle = document.querySelector('.popup__image-title');
+    this._formImg.src = evt.target.src;
+    this._formImg.alt = evt.target.alt;
+    this._formImgTitle.textContent = evt.target.alt;
 
-    return openPopup(popupForScaleImg);
+    return openPopup(this._popupForScaleImg);
   }
 
   _setEventListener() {
