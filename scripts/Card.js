@@ -6,18 +6,20 @@ export default class Card {
     this._imageLink = data.link;
     this._cardSelector = cardSelector;
     this._element = this._getTemplate();
+
     this._popupForScaleImg = document.querySelector('.popup_for_scale-image');
     this._formImg = document.querySelector('.popup__image');
     this._formImgTitle = document.querySelector('.popup__image-title');
+
   }
 
   _getTemplate() {
-    const cardElement = document
+    this._cardElement = document
       .querySelector(this._cardSelector)
       .content.querySelector(".element")
       .cloneNode(true);
 
-    return cardElement;
+    return this._cardElement;
   }
 
   _like(evt) {
@@ -28,11 +30,10 @@ export default class Card {
     evt.target.closest(".element").remove();
   }
 
-  _scaleImage(evt) {
-    
-    this._formImg.src = evt.target.src;
-    this._formImg.alt = evt.target.alt;
-    this._formImgTitle.textContent = evt.target.alt;
+  _scaleImage() {
+    this._formImg.src = this._imageLink;
+    this._formImg.alt = this._title;
+    this._formImgTitle.textContent = this._title;
 
     return openPopup(this._popupForScaleImg);
   }
@@ -41,11 +42,17 @@ export default class Card {
     this._image = this._element.querySelector(".element__image");
     this._element
       .querySelector(".element__like")
-      .addEventListener("click", this._like);
+      .addEventListener("click", (e) => {
+        this._like()
+        console.log(this._imageLink)
+        console.log(this._formImg)
+      });
     this._element
       .querySelector(".element__delete")
       .addEventListener("click", this._removeCard);
-    this._image.addEventListener("click", this._scaleImage);
+      this._image.addEventListener("click", () => {
+        this._scaleImage()
+      });
   }
 
   generateCard() {
@@ -58,3 +65,4 @@ export default class Card {
     return this._element;
   }
 }
+  
