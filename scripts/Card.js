@@ -6,6 +6,9 @@ export default class Card {
     this._imageLink = data.link;
     this._cardSelector = cardSelector;
     this._element = this._getTemplate();
+    this._popupForScaleImg = document.querySelector('.popup_for_scale-image');
+    this._formImg = document.querySelector('.popup__image');
+    this._formImgTitle = document.querySelector('.popup__image-title');
   }
 
   _getTemplate() {
@@ -26,9 +29,7 @@ export default class Card {
   }
 
   _scaleImage(evt) {
-    this._popupForScaleImg = document.querySelector('.popup_for_scale-image');
-    this._formImg = document.querySelector('.popup__image');
-    this._formImgTitle = document.querySelector('.popup__image-title');
+    
     this._formImg.src = evt.target.src;
     this._formImg.alt = evt.target.alt;
     this._formImgTitle.textContent = evt.target.alt;
